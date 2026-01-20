@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2 class="logo">Admin</h2>
+      <nav>
+        <ul>
+          <li>
+            <a href="index.html" data-page="summary" class="active">Summary</a>
+          </li>
+          <li>
+            <a href="products.html" data-page="products">Products</a>
+          </li>
+          <li><a href="#" data-page="categories">Categories</a></li>
+          <li><a href="#" data-page="orders">Orders</a></li>
+          <li class="logout">Logout</li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Area -->
+    <div class="main">
+      <!-- Header -->
+      <header class="header">
+        <h1 id="page-title">Products</h1>
+        <button id="add-btn">Add New</button>
+      </header>
+
+      <!-- Content -->
+      <section class="content" id="content">
+        <!-- total summary -->
+        <div class="total-summary">
+          <div class="total-summary-item">
+            <div class="total-summary-item-title">Products</div>
+            <div class="total-summary-item-count">0</div>
+          </div>
+          <div class="total-summary-item">
+            <div class="total-summary-item-title">Categories</div>
+            <div class="total-summary-item-count">0</div>
+          </div>
+          <div class="total-summary-item">
+            <div class="total-summary-item-title">Orders</div>
+            <div class="total-summary-item-count">0</div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
