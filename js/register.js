@@ -66,6 +66,7 @@ registerForm.addEventListener("submit", function (event) {
   if (isUserValid && isEmailValid && isPassValid) {
     const userData = {
       username: usernameInput.value,
+      email: emailInput.value,
       password: passwordInput.value,
       role: roleInput.value,
     };
