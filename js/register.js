@@ -72,7 +72,7 @@ registerForm.addEventListener("submit", function (event) {
       // role: roleInput.value,
     };
 
-    localStorage.setItem(usernameInput.value, JSON.stringify(userData));
+    localStorage.setItem("userData", JSON.stringify(userData));
     window.location.href = "login.html";
   }
 });
