@@ -1,7 +1,8 @@
 // Handle Logout Functionality
-var logoutBtn = document.getElementById("logoutBtn");
+var logoutBtn = document.getElementsByClassName("logout")[0];
 
 logoutBtn.addEventListener("click", function () {
   localStorage.removeItem("isLoggedIn");
-  window.location.href = "login.html";
+  console.log("logout");
+  window.location.href = "../login.html";
 });

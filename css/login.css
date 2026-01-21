@@ -1,0 +1,16 @@
+body {
+  text-align: center;
+}
+.error-message,
+.error-message {
+  color: red;
+  font-size: 0.9em;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 0px auto;
+  padding-top: 50px;
+  gap: 10px;
+}

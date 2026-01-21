@@ -51,7 +51,7 @@ loginForm.addEventListener("submit", function (e) {
           localStorage.setItem("isLoggedIn", "true");
           localStorage.setItem("user", `${JSON.stringify(data)}`);
           location.assign(
-            "http://127.0.0.1:5500/final_project_js_ecomerece/admin.html",
+            "http://127.0.0.1:5500/final_project_js_ecomerece/admin/index.html",
           );
         }
       }
