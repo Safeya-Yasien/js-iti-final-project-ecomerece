@@ -48,6 +48,7 @@ loginForm.addEventListener("submit", function (e) {
             email: emailTxt.value,
             password: passwordTxt.value,
           };
+          localStorage.setItem("isLoggedIn", "true");
           localStorage.setItem("user", `${JSON.stringify(data)}`);
           location.assign(
             "http://127.0.0.1:5500/final_project_js_ecomerece/admin.html",
@@ -71,6 +72,7 @@ function checkRegularUser() {
   // Your code to check regular user login
   if (validatedEmail && validatedPassword) {
     if (data.email === emailTxt.value && data.password === passwordTxt.value) {
+      localStorage.setItem("isLoggedIn", "true");
       window.location.href = "user.html";
     } else {
       document.getElementById("errormessage").innerText =
@@ -128,4 +130,4 @@ function updateStatus(inputEl, errorEl, isValid, errorMsg) {
 }
 
 // print data for testing
-console.log("Registered User Data:", data.Email, data.password);
+// console.log("Registered User Data:", data.Email, data.password);
