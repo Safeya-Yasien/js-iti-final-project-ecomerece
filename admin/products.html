@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products</title>
+    <link rel="stylesheet" href="css/products.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <h2 class="logo">Admin</h2>
+      <nav>
+        <ul>
+          <li>
+            <a href="index.html" data-page="summary">Summary</a>
+          </li>
+          <li>
+            <a href="products.html" data-page="products" class="active"
+              >Products</a
+            >
+          </li>
+          <li>
+            <a href="categories.html" data-page="categories">Categories</a>
+          </li>
+          <li><a href="orders.html" data-page="orders">Orders</a></li>
+          <li class="logout">Logout</li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div class="main">
+      <!-- Header -->
+      <header class="header">
+        <h1 id="page-title">Products</h1>
+        <button id="add-btn">Add New</button>
+      </header>
+
+      <!-- Content -->
+      <section class="content" id="content">
+        <!-- Products Table -->
+        <button class="btn btn-danger delete-all">Delete All</button>
+        <table id="products-view">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Stock</th>
+              <th>Category</th>
+              <th>Description</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+
+          <tbody id="products-table">
+            <!-- Product Rows will be added dynamically -->
+
+            <!-- <tr>
+              <td>Product 3</td>
+              <td>300</td>
+              <td>30</td>
+              <td>Category 3</td>
+              <td>Product 3 description</td>
+              <td>
+                <button class="btn btn-primary">Edit</button>
+                <button class="btn btn-danger">Delete</button>
+              </td>
+            </tr> -->
+          </tbody>
+        </table>
+
+        <!-- Add Product Form -->
+        <form id="add-product-form" class="hidden add-form">
+          <h2>Add Product</h2>
+
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" id="name" />
+          </div>
+
+          <div class="form-group">
+            <label>Price</label>
+            <input type="number" id="price" />
+          </div>
+
+          <div class="form-group">
+            <label>Stock</label>
+            <input type="number" id="stock" />
+          </div>
+
+          <div class="form-group">
+            <label>Category</label>
+            <select id="category">
+              <option value="1">Category 1</option>
+              <option value="2">Category 2</option>
+              <option value="3">Category 3</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Description</label>
+            <textarea id="description"></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit">Save</button>
+            <button type="button" id="cancel-btn">Cancel</button>
+          </div>
+        </form>
+      </section>
+
+      <div class="toast">
+        <div class="toast-content"></div>
+      </div>
+    </div>
+
+    <script src="js/products.js"></script>
+  </body>
+</html>

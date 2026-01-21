@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Categories</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/categories.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <h2 class="logo">Admin</h2>
+      <nav>
+        <ul>
+          <li>
+            <a href="index.html" data-page="summary">Summary</a>
+          </li>
+          <li>
+            <a href="products.html" data-page="products">Products</a>
+          </li>
+          <li>
+            <a href="categories.html" data-page="categories" class="active"
+              >Categories</a
+            >
+          </li>
+          <li><a href="orders.html" data-page="orders">Orders</a></li>
+          <li class="logout">Logout</li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div class="main">
+      <!-- Header -->
+      <header class="header">
+        <h1 id="page-title">Categories</h1>
+        <button id="add-btn">Add New</button>
+      </header>
+
+      <!-- Content -->
+      <section class="content" id="content">
+        <!-- Products Table -->
+        <button class="btn btn-danger delete-all">Delete All</button>
+        <table id="categories-view">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+
+          <tbody id="categories-table">
+            <!-- Categories Rows will be added dynamically -->
+
+            <!-- <tr>
+              <td>Product 3</td>
+              <td>300</td>
+              <td>30</td>
+              <td>Category 3</td>
+              <td>Product 3 description</td>
+              <td>
+                <button class="btn btn-primary">Edit</button>
+                <button class="btn btn-danger">Delete</button>
+              </td>
+            </tr> -->
+          </tbody>
+        </table>
+
+        <!-- Add Category Form -->
+        <form id="add-category-form" class="hidden add-form">
+          <h2>Add Category</h2>
+
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" id="name" />
+          </div>
+
+          <div class="form-group">
+            <label>Status</label>
+            <input type="string" id="status" />
+          </div>
+
+          <div class="form-group">
+            <label>Description</label>
+            <textarea id="description"></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit">Save</button>
+            <button type="button" id="cancel-btn">Cancel</button>
+          </div>
+        </form>
+      </section>
+
+      <div class="toast">
+        <div class="toast-content"></div>
+      </div>
+    </div>
+
+    <script src="js/categories.js"></script>
+  </body>
+</html>

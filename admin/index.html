@@ -17,8 +17,10 @@
           <li>
             <a href="products.html" data-page="products">Products</a>
           </li>
-          <li><a href="#" data-page="categories">Categories</a></li>
-          <li><a href="#" data-page="orders">Orders</a></li>
+          <li>
+            <a href="categories.html" data-page="categories">Categories</a>
+          </li>
+          <li><a href="orders.html" data-page="orders">Orders</a></li>
           <li class="logout">Logout</li>
         </ul>
       </nav>
@@ -28,7 +30,7 @@
     <div class="main">
       <!-- Header -->
       <header class="header">
-        <h1 id="page-title">Products</h1>
+        <h1 id="page-title">Summary</h1>
         <button id="add-btn">Add New</button>
       </header>
 
@@ -38,15 +40,15 @@
         <div class="total-summary">
           <div class="total-summary-item">
             <div class="total-summary-item-title">Products</div>
-            <div class="total-summary-item-count">0</div>
+            <div class="total-summary-item-count" id="products-count">0</div>
           </div>
           <div class="total-summary-item">
             <div class="total-summary-item-title">Categories</div>
-            <div class="total-summary-item-count">0</div>
+            <div class="total-summary-item-count" id="categories-count">0</div>
           </div>
           <div class="total-summary-item">
             <div class="total-summary-item-title">Orders</div>
-            <div class="total-summary-item-count">0</div>
+            <div class="total-summary-item-count" id="orders-count">0</div>
           </div>
         </div>
       </section>

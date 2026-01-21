@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orders</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <h2 class="logo">Admin</h2>
+      <nav>
+        <ul>
+          <li>
+            <a href="index.html" data-page="summary">Summary</a>
+          </li>
+          <li>
+            <a href="products.html" data-page="products">Products</a>
+          </li>
+          <li>
+            <a href="categories.html" data-page="categories">Categories</a>
+          </li>
+          <li>
+            <a href="orders.html" data-page="orders" class="active">Orders</a>
+          </li>
+          <li class="logout">Logout</li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div class="main">
+      <!-- Header -->
+      <header class="header">
+        <h1 id="page-title">Orders</h1>
+      </header>
+
+      <!-- Content -->
+      <section class="content" id="content">
+        <!-- Products Table -->
+        <button class="btn btn-danger delete-all">Delete All</button>
+        <table id="orders-view">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>customerName</th>
+              <th>items</th>
+              <th>totalAmount</th>
+              <th>status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+
+          <tbody id="orders-table">
+            <!-- orders Rows will be added dynamically -->
+            <tr>
+              <td>1</td>
+              <td>John Doe</td>
+              <td>2</td>
+              <td>100</td>
+              <td>Pending</td>
+              <td>
+                <button class="btn btn-primary">Edit</button>
+                <button class="btn btn-danger">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Jane Doe</td>
+              <td>3</td>
+              <td>200</td>
+              <td>Pending</td>
+              <td>
+                <button class="btn btn-primary">Edit</button>
+                <button class="btn btn-danger">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Add Order Form -->
+        <form id="add-order-form" class="hidden add-form">
+          <h2>Add Order</h2>
+
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" id="name" />
+          </div>
+
+          <div class="form-group">
+            <label>Status</label>
+            <input type="string" id="status" />
+          </div>
+
+          <div class="form-group">
+            <label>Description</label>
+            <textarea id="description"></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit">Save</button>
+            <button type="button" id="cancel-btn">Cancel</button>
+          </div>
+        </form>
+      </section>
+
+      <div class="toast">
+        <div class="toast-content"></div>
+      </div>
+    </div>
+
+    <script src="js/orders.js"></script>
+  </body>
+</html>
