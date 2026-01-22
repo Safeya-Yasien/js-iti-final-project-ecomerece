@@ -23,10 +23,7 @@ loginForm.addEventListener("submit", function (e) {
   // Check if the user is an admin
   if (validatedEmail && validatedPassword) {
     var xhr = new XMLHttpRequest();
-    xhr.open(
-      "GET",
-      "http://127.0.0.1:5500/final_project_js_ecomerece/js/adminData.json",
-    );
+    xhr.open("GET", "js/adminData.json");
     xhr.onload = function () {
       if (xhr.status == 200) {
         var data = JSON.parse(xhr.responseText);
@@ -50,9 +47,7 @@ loginForm.addEventListener("submit", function (e) {
           };
           localStorage.setItem("isLoggedIn", "true");
           localStorage.setItem("user", `${JSON.stringify(data)}`);
-          location.assign(
-            "http://127.0.0.1:5500/final_project_js_ecomerece/admin.html",
-          );
+          location.assign("admin/index.html");
         }
       }
     };
