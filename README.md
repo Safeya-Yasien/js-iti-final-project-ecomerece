@@ -62,12 +62,13 @@ final_project_js_ecomerece/
 
 ## Team
 
-| Name          | Role / Contribution                                                                                    | GitHub                                        |
-| ------------- | ------------------------------------------------------------------------------------------------------ | --------------------------------------------- |
-| Alice Johnson | Implemented user registration, login, and validation logic; worked on product listing pages            | [alicegithub](https://github.com/alicegithub) |
-| Safeya Yasien | Built the admin dashboard, CRUD operations for products and categories, and order status updates       | [bobgithub](https://github.com/Safeya-Yasien) |
-| Carol Lee     | Designed UI/UX for main website and admin dashboard; styled pages with CSS and improved responsiveness | [carolgithub](https://github.com/carolgithub) |
-| David Kim     | Integrated cart functionality, checkout flow, and localStorage handling for user sessions              | [davidgithub](https://github.com/davidgithub) |
+| Name            | Role / Contribution                                                                                    | GitHub                                            |
+| --------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------- |
+| Asalla Eliwa    | Implemented user registration, login, and validation logic; worked on product listing pages            | [Asalla-Eliwa](https://github.com/Asalla-eliwa)   |
+| Safeya Yasien   | Built the admin dashboard, CRUD operations for products and categories, and order status updates       | [Safeya-Yasien](https://github.com/Safeya-Yasien) |
+| Fatma Al-Zahraa | Designed UI/UX for main website and admin dashboard; styled pages with CSS and improved responsiveness | [Fatma-Al-Zahraa](https://github.com/carolgithub) |
+| zainab          | Designed UI/UX for main website and admin dashboard; styled pages with CSS and improved responsiveness | [Fatma-Al-Zahraa](https://github.com/Zain5689)    |
+| Tasneem         | Integrated cart functionality, checkout flow, and localStorage handling for user sessions              | [davidgithub](https://github.com/davidgithub)     |
 
 ---
 
