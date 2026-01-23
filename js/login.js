@@ -55,7 +55,6 @@ loginForm.addEventListener("submit", function (e) {
 });
 
 // login Admin Login
-
 function checkRegularUser() {
   // Validate email and password
   var validatedEmail = ValidateEmail(emailTxt.value);
@@ -68,7 +67,7 @@ function checkRegularUser() {
     );
     if (foundUser) {
       localStorage.setItem("isLoggedIn", "true");
-      window.location.href = "user.html";
+      window.location.href = "index.html";
     } else {
       document.getElementById("errormessage").innerText =
         "error  Email or Password";

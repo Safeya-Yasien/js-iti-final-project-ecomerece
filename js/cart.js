@@ -1,3 +1,8 @@
+
+
+
+
+
 function getCart() {
   var cart = JSON.parse(localStorage.getItem("cart")) || [];
   if (cart.length === 0) {
