@@ -111,3 +111,5 @@ Admin@123 <br/>
         - fatama was save id of product in localStorage so i have to get product which id is equal to product id in cart
         - add updateQty function to update quantity of product in cart.js file
         - add styles
+        - remove products files because fatama added it actually in home page 'index.html'
+
