@@ -38,7 +38,7 @@ function displayOrders() {
                 <td>${totalPrice.toFixed(2)} $</td>
                 <td><span class="status ${statusClass}">${status}</span></td>
                 <td>
-                   <button class="action-btn btn-confirm" ${isNotPending} onclick="handleConfirm('${element.id}')">Confirm</button>
+                  <button class="action-btn btn-confirm" ${isNotPending} onclick="handleConfirm('${element.id}')">Confirm</button>
                     <button class="action-btn btn-reject" ${isNotPending} onclick="handleReject('${element.id}')">Reject</button>
                     <button class="action-btn btn-delete" onclick="handleDelete('${element.id}')">Delete</button>
                 </td>
