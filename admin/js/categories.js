@@ -35,7 +35,27 @@ addCategoryForm.addEventListener("submit", (e) => {
   }
 });
 
+function validateCategory() {
+  if (!categoryName.value.trim()) {
+    alert("Category name is required");
+    return false;
+  }
+
+  if (!categoryStatus.value.trim()) {
+    alert("Category status is required");
+    return false;
+  }
+
+  if (!categoryDescription.value.trim()) {
+    alert("Category description is required");
+    return false;
+  }
+
+  return true;
+}
+
 function addCategory() {
+  if (!validateCategory()) return;
   if (
     categoryName.value.trim() &&
     categoryDescription.value.trim() &&
@@ -85,12 +105,31 @@ function displayCategories() {
 function deleteCategory(id) {
   const categories = JSON.parse(localStorage.getItem("categories")) || [];
   const categoryIndex = categories.findIndex((category) => category.id === id);
+  let products = JSON.parse(localStorage.getItem("products")) || [];
 
-  const confirmMessage = confirm(
-    "Are you sure you want to delete this category?",
+  const categoryName = categories[categoryIndex].name;
+
+  const relatedProducts = products.filter(
+    (p) => p.category.toLowerCase() === categoryName.toLowerCase(),
   );
-  if (confirmMessage) {
+
+  let confirmMessage = "Are you sure you want to delete this category?";
+
+  if (relatedProducts.length > 0) {
+    confirmMessage = "This category has products, do you want to delete it?";
+  }
+
+  const confirmed = confirm(confirmMessage);
+
+  if (confirmed) {
     categories.splice(categoryIndex, 1);
+
+    products = products.filter(
+      (product) =>
+        product.category.toLowerCase() !== categoryName.toLowerCase(),
+    );
+
+    localStorage.setItem("products", JSON.stringify(products));
     localStorage.setItem("categories", JSON.stringify(categories));
     displayCategories();
   }

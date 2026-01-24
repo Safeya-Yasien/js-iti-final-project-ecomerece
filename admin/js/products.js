@@ -39,7 +39,37 @@ addProductForm.addEventListener("submit", (e) => {
   }
 });
 
+function validateProduct() {
+  if (!productName.value.trim()) {
+    alert("Product name is required");
+    return false;
+  }
+  if (!productPrice.value.trim() || Number(productPrice.value) <= 0) {
+    alert("Price must be greater than 0");
+    return false;
+  }
+  if (!productStock.value.trim() || Number(productStock.value) < 0) {
+    alert("Stock cannot be negative");
+    return false;
+  }
+  if (!productCategory.value.trim()) {
+    alert("Category is required");
+    return false;
+  }
+  if (!productDescription.value.trim()) {
+    alert("Description is required");
+    return false;
+  }
+  if (!productImage.value.trim()) {
+    alert("Image is required");
+    return false;
+  }
+
+  return true;
+}
+
 function addProduct() {
+  if (!validateProduct()) return;
   if (
     productName.value.trim() &&
     productPrice.value.trim() &&
