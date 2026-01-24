@@ -145,8 +145,6 @@ function updateCategory() {
   }
 }
 
-displayCategories();
-
 const defaultCategories = [
   {
     id: 1,
@@ -168,5 +166,12 @@ const defaultCategories = [
   },
 ];
 
-// Save to localStorage
-localStorage.setItem("categories", JSON.stringify(defaultCategories));
+function initCategories() {
+  const categories = JSON.parse(localStorage.getItem("categories"));
+
+  if (!products || products.length === 0) {
+    localStorage.setItem("categories", JSON.stringify(defaultCategories));
+  }
+}
+initCategories();
+displayCategories();

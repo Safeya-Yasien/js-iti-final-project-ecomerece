@@ -165,8 +165,6 @@ function updateProduct() {
   }
 }
 
-displayProducts();
-
 const defaultProducts = [
   {
     id: 1,
@@ -224,5 +222,13 @@ const defaultProducts = [
   },
 ];
 
-// Save to localStorage
-localStorage.setItem("products", JSON.stringify(defaultProducts));
+function initProducts() {
+  const products = JSON.parse(localStorage.getItem("products"));
+
+  if (!products || products.length === 0) {
+    localStorage.setItem("products", JSON.stringify(defaultProducts));
+  }
+}
+
+initProducts();
+displayProducts();
