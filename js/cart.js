@@ -1,8 +1,3 @@
-
-
-
-
-
 function getCart() {
   var cart = JSON.parse(localStorage.getItem("cart")) || [];
   if (cart.length === 0) {
@@ -15,12 +10,16 @@ function getCart() {
 function displayCart(cart) {
   const allProducts = JSON.parse(localStorage.getItem("products")) || [];
   const cartItems = document.getElementById("cart-items");
+  const cartSummary = document.getElementById("cart-summary");
+  const cartTotal = document.getElementById("cart-total");
 
-  html = "";
+  let html = "";
+  let total = 0;
 
   for (const item of cart) {
     const product = allProducts.find((p) => p.id === item.id);
     if (product) {
+      total += product.price * item.quantity;
       html += `
            <div class="cart-item">
           <div class="cart-img">
@@ -43,6 +42,8 @@ function displayCart(cart) {
     }
   }
   cartItems.innerHTML = html;
+  cartTotal.innerText = total.toFixed(2);
+  cartSummary.classList.remove("hidden");
 }
 
 function deleteAll() {

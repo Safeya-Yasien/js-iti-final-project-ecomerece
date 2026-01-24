@@ -70,6 +70,30 @@ Admin@gmail.com <br/>
 password <br/>
 Admin@123 <br/>
 
+<!-- test product -->
+
+Men T-Shirt
+<br/>
+25
+<br/>
+50
+<br/>
+Men
+<br/>
+Comfortable cotton t-shirt
+<br/>
+men-1
+<br/>
+
+<!-- test category -->
+
+Men
+<br/>
+Active
+<br/>
+mens products
+<br/>
+
 ###### Fatma Al-Zahraa
 
     - index.html "home" page
@@ -112,4 +136,15 @@ Admin@123 <br/>
         - add updateQty function to update quantity of product in cart.js file
         - add styles
         - remove products files because fatama added it actually in home page 'index.html'
+        - add summary of cart
 
+###### Zainab
+
+    - login.html
+    - register.html
+
+
+    What i change?
+        - need to add check if user not have account and logeed in with true email and pass and redirect to register page or display message that you have to register first
+
+###### Asalla
