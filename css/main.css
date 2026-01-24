@@ -1,4 +1,24 @@
 :root {
+<<<<<<< HEAD
+  /* الألوان الأساسية - Primary Colors */
+  --primary-color: #4361ee; /* أزرق عصري */
+  --secondary-color: #3f37c9;
+  --accent-color: #4cc9f0;
+
+  /* ألوان الحالات - Status Colors */
+  --success: #2ec4b6; /* أخضر للـ Confirm */
+  --danger: #e71d36; /* أحمر للـ Reject */
+  --warning: #ff9f1c; /* برتقالي للـ Pending */
+  --info: #0077b6;
+
+  /* ألوان الخلفية والنصوص */
+  --bg-light: #f8f9fa; /* خلفية الصفحة */
+  --card-bg: #ffffff; /* خلفية البطاقات والجداول */
+  --text-main: #2b2d42; /* لون النص الأساسي */
+  --text-muted: #8d99ae; /* للنصوص الفرعية */
+
+  /* المسافات والحواف */
+=======
   --primary-color: #4361ee;
   --secondary-color: #3f37c9;
   --accent-color: #4cc9f0;
@@ -13,6 +33,7 @@
   --text-main: #2b2d42;
   --text-muted: #8d99ae;
 
+>>>>>>> 13e4f329c5c9e3696090f3dc28291bfbd18692a8
   --radius: 12px;
   --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   --transition: all 0.3s ease;
@@ -27,6 +48,8 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 20px;
+<<<<<<< HEAD
+=======
   padding-top: 80px;
 }
 header {
@@ -225,4 +248,5 @@ header {
   color: #27ae60;
   font-weight: bold;
   font-size: 1.1rem;
+>>>>>>> 13e4f329c5c9e3696090f3dc28291bfbd18692a8
 }
