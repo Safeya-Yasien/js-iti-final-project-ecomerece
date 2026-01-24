@@ -148,3 +148,11 @@ mens products
         - need to add check if user not have account and logeed in with true email and pass and redirect to register page or display message that you have to register first
 
 ###### Asalla
+
+    - manage orders
+    -
+
+    What i change?
+        - add orders in admin
+        - get data form localStorage after user checkout
+        -

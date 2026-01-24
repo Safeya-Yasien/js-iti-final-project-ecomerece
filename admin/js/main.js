@@ -17,8 +17,8 @@ function updateDashboard() {
   pendingOrdersCount.innerText = pendingOrders;
 
   const revenue = orders
-    .filter((o) => o.status === "confirmed")
-    .reduce((sum, o) => sum + parseFloat(o.totalPrice), 0);
+    .filter((o) => o.status.toLowerCase() === "confirmed")
+    .reduce((sum, o) => sum + parseFloat(o.total), 0);
   totalRevenueCount.innerText = `$${revenue.toFixed(2)}`;
 }
 
