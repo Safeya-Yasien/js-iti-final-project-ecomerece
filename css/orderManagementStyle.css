@@ -1,0 +1,204 @@
+:root {
+    /* الألوان الأساسية - Primary Colors */
+    --primary-color: #4361ee;    /* أزرق عصري */
+    --secondary-color: #3f37c9;
+    --accent-color: #4cc9f0;
+
+    /* ألوان الحالات - Status Colors */
+    --success: #2ec4b6;         /* أخضر للـ Confirm */
+    --danger: #e71d36;          /* أحمر للـ Reject */
+    --warning: #ff9f1c;         /* برتقالي للـ Pending */
+    --info: #0077b6;
+
+    /* ألوان الخلفية والنصوص */
+    --bg-light: #f8f9fa;        /* خلفية الصفحة */
+    --card-bg: #ffffff;         /* خلفية البطاقات والجداول */
+    --text-main: #2b2d42;       /* لون النص الأساسي */
+    --text-muted: #8d99ae;     /* للنصوص الفرعية */
+    
+    /* المسافات والحواف */
+    --radius: 12px;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
+}
+
+/* تنسيق عام بسيط لكل المتجر */
+body {
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+.table-container {
+    width: 100%;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 20px;
+    overflow-x: auto; /* هذا السطر هو سر التعامل مع الشاشات الصغيرة */
+    -webkit-overflow-scrolling: touch; /* تمرير ناعم على أجهزة iOS */
+}
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* لو الأزرار كتير تنزل سطر جديد في الموبايل */
+    gap: 10px;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.pagination-container button {
+    padding: 8px 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 14px;
+    transition: var(--transition);
+}
+table {
+    margin-top: 15px;
+    width: 100%;
+    min-width: 700px; /* يمنع الجدول من "الانضغاط" الزائد ويجبره على التمرير الجانبي بدلاً من تداخل النصوص */
+    border-collapse: collapse;
+}
+
+th {
+    background-color: var(--bg-light);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 12px;
+    text-align: left;
+    border-bottom: 2px solid #edf2f4;
+}
+
+td {
+    padding: 15px 12px;
+    border-bottom: 1px solid #edf2f4;
+}
+
+/* تأثير عند تمرير الماوس على الصف */
+tr:hover {
+    background-color: #f1f5ff;
+    transition: var(--transition);
+}
+.status {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.status-pending { background: #fff3e0; color: var(--warning); }
+.status-confirmed { background: #e0f2f1; color: var(--success); }
+.status-rejected { background: #ffebee; color: var(--danger); }
+.dashboard-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    border-left: 5px solid var(--primary-color); /* تمييز لوني */
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.card .value {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--text-main);
+    margin-top: 10px;
+}
+
+/* تخصيص ألوان الحواف لكل كارت حسب نوعه */
+.card.pending { border-left-color: var(--warning); }
+.card.revenue { border-left-color: var(--success); }
+.card.total { border-left-color: var(--primary-color); }
+/* تنسيق عام لكل الأزرار داخل الجدول */
+.action-btn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin: 2px;
+}
+
+/* زر التأكيد (Confirm) */
+.btn-confirm {
+    background-color: var(--success);
+    color: white;
+}
+
+.btn-confirm:hover {
+    background-color: #26a69a; /* درجة أغمق قليلاً عند التمرير */
+    box-shadow: 0 2px 8px rgba(46, 196, 182, 0.4);
+}
+
+/* زر الرفض (Reject) */
+.btn-reject {
+    background-color: var(--danger);
+    color: white;
+}
+
+.btn-reject:hover {
+    background-color: #c9182b;
+    box-shadow: 0 2px 8px rgba(231, 29, 54, 0.4);
+}
+
+/* زر الحذف (Delete) */
+.btn-delete {
+    background-color: #f1f3f5; /* لون رمادي فاتح جداً */
+    color: var(--text-muted);
+    border: 1px solid #dee2e6;
+}
+
+.btn-delete:hover {
+    background-color: var(--text-muted);
+    color: white;
+}
+
+/* حالة الزرار وهو Disabled (لو الطلب اتأكد خلاص) */
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    filter: grayscale(1);
+}
+@media screen and (max-width: 600px) {
+    th, td {
+        padding: 10px 8px;
+        font-size: 12px;
+    }
+    
+    .action-btn {
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+}
