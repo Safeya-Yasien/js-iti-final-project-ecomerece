@@ -352,3 +352,9 @@ table {
   opacity: 1;
   visibility: visible;
 }
+
+.error {
+  color: #e74c3c;
+  font-size: 13px;
+  margin-top: 4px;
+}

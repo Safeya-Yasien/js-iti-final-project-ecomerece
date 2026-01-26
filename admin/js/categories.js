@@ -36,22 +36,31 @@ addCategoryForm.addEventListener("submit", (e) => {
 });
 
 function validateCategory() {
+  let isValid = true;
+
+  document.getElementById("name-error").textContent = "";
+  document.getElementById("status-error").textContent = "";
+  document.getElementById("description-error").textContent = "";
+
   if (!categoryName.value.trim()) {
-    alert("Category name is required");
-    return false;
+    document.getElementById("name-error").textContent =
+      "Category name is required";
+    isValid = false;
   }
 
   if (!categoryStatus.value.trim()) {
-    alert("Category status is required");
-    return false;
+    document.getElementById("status-error").textContent =
+      "Category status is required";
+    isValid = false;
   }
 
   if (!categoryDescription.value.trim()) {
-    alert("Category description is required");
-    return false;
+    document.getElementById("description-error").textContent =
+      "Category description is required";
+    isValid = false;
   }
 
-  return true;
+  return isValid;
 }
 
 function addCategory() {
