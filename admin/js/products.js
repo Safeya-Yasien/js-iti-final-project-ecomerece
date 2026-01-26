@@ -39,33 +39,81 @@ addProductForm.addEventListener("submit", (e) => {
   }
 });
 
-function validateProduct() {
-  if (!productName.value.trim()) {
-    alert("Product name is required");
-    return false;
-  }
-  if (!productPrice.value.trim() || Number(productPrice.value) <= 0) {
-    alert("Price must be greater than 0");
-    return false;
-  }
-  if (!productStock.value.trim() || Number(productStock.value) < 0) {
-    alert("Stock cannot be negative");
-    return false;
-  }
-  if (!productCategory.value.trim()) {
-    alert("Category is required");
-    return false;
-  }
-  if (!productDescription.value.trim()) {
-    alert("Description is required");
-    return false;
-  }
-  if (!productImage.value.trim()) {
-    alert("Image is required");
-    return false;
-  }
+productName.addEventListener("input", validateName);
+productPrice.addEventListener("input", validatePrice);
+productStock.addEventListener("input", validateStock);
+productCategory.addEventListener("change", validateCategory);
+productDescription.addEventListener("input", validateDescription);
+productImage.addEventListener("input", validateImage);
 
+function validateName() {
+  if (!productName.value.trim()) {
+    document.getElementById("name-error").textContent =
+      "Product name is required";
+    return false;
+  }
+  document.getElementById("name-error").textContent = "";
   return true;
+}
+
+function validatePrice() {
+  if (!productPrice.value.trim() || Number(productPrice.value) <= 0) {
+    document.getElementById("price-error").textContent =
+      "Price must be greater than 0";
+    return false;
+  }
+  document.getElementById("price-error").textContent = "";
+  return true;
+}
+
+function validateStock() {
+  if (!productStock.value.trim() || Number(productStock.value) < 0) {
+    document.getElementById("stock-error").textContent =
+      "Stock cannot be negative";
+    return false;
+  }
+  document.getElementById("stock-error").textContent = "";
+  return true;
+}
+
+function validateCategory() {
+  if (!productCategory.value.trim()) {
+    document.getElementById("category-error").textContent =
+      "Category is required";
+    return false;
+  }
+  document.getElementById("category-error").textContent = "";
+  return true;
+}
+
+function validateDescription() {
+  if (!productDescription.value.trim()) {
+    document.getElementById("description-error").textContent =
+      "Description is required";
+    return false;
+  }
+  document.getElementById("description-error").textContent = "";
+  return true;
+}
+
+function validateImage() {
+  if (!productImage.value.trim()) {
+    document.getElementById("image-error").textContent = "Image is required";
+    return false;
+  }
+  document.getElementById("image-error").textContent = "";
+  return true;
+}
+
+function validateProduct() {
+  return (
+    validateName() &&
+    validatePrice() &&
+    validateStock() &&
+    validateCategory() &&
+    validateDescription() &&
+    validateImage()
+  );
 }
 
 function addProduct() {
