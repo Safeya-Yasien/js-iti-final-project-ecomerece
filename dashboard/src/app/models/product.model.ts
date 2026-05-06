@@ -5,10 +5,10 @@ export interface Product {
   description: string;
   price: number;
   priceAfterDiscount?: number; 
-  quantity: number;      // بدل stock
+  quantity: number;    
   sold?: number;
   category: any;         
-  imageCover: string;    // مهمة جداً لأنها Required في الباكيند
+  imageCover: string;    
   images?: string[];
   ratingsAverage?: number;
   ratingsQuantity?: number;

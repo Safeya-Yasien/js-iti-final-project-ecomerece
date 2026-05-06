@@ -3,46 +3,103 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { ProductService } from '../../../services/product.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-
-// src/app/components/admin/product-form/product-form.component.ts
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-product',
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule],
-  templateUrl: './product-form.component.html', // 👈 غيري الاسم هنا ليتطابق مع الملف اللي في الفولدر
-  styleUrl: './product-form.component.css'      // وتأكدي من اسم ملف الـ CSS كمان بالمرة
+  templateUrl: './product-form.component.html',
+  styleUrl: './product-form.component.css'
 })
 export class AddProductComponent implements OnInit {
   productForm!: FormGroup;
+  selectedFile: File | null = null;
+  categories: any[] = []; 
 
-  constructor(private fb: FormBuilder, private productSer: ProductService,
-     private router: Router
+  constructor(
+    private fb: FormBuilder,
+    private productSer: ProductService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
+
     this.productForm = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(3)]],
       description: ['', [Validators.required, Validators.minLength(20)]],
       price: [0, [Validators.required, Validators.min(1)]],
       quantity: [0, [Validators.required, Validators.min(1)]],
-      imageCover: ['', Validators.required],
-      category: ['', Validators.required] // لازم ID حقيقي
+      category: ['', Validators.required]
+    });
+
+
+    this.loadCategories();
+  }
+
+
+  loadCategories() {
+    this.productSer.getAllCategories().subscribe({
+      next: (res) => {
+        this.categories = res.data;
+        console.log('Categories loaded successfully');
+      },
+      error: (err) => {
+        console.error('Failed to load categories', err);
+      }
     });
   }
 
+
+  onFileSelect(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      this.selectedFile = file;
+    }
+  }
+
   onSubmit() {
-    if (this.productForm.valid) {
-      this.productSer.addProduct(this.productForm.value).subscribe({
+    if (this.productForm.valid && this.selectedFile) {
+      const formData = new FormData();
+
+      // إضافة البيانات النصية
+      formData.append('title', this.productForm.get('title')?.value);
+      formData.append('description', this.productForm.get('description')?.value);
+      formData.append('price', this.productForm.get('price')?.value);
+      formData.append('quantity', this.productForm.get('quantity')?.value);
+      formData.append('category', this.productForm.get('category')?.value);
+      
+      // إضافة الصورة
+      formData.append('imageCover', this.selectedFile);
+
+      this.productSer.addProduct(formData).subscribe({
         next: (res) => {
-          alert('تم إضافة المنتج بنجاح!');
+          Swal.fire({
+            title: "Added Successfully",
+            text: "Product and image have been uploaded",
+            icon: "success",
+            timer: 2000,
+            showConfirmButton: false
+          });
+          
           this.productForm.reset();
-             this.router.navigate(['/products']);
+          this.selectedFile = null;
+          this.router.navigate(["/admin/products"]);
         },
         error: (err) => {
-          console.error('خطأ في الإضافة:', err);
-          alert('فشلت الإضافة.. تأكدي من التوكن وصلاحية الـ ID');
+          Swal.fire({
+            title: "Failed",
+            text: "Could not add product, please check server and Cloudinary",
+            icon: "error"
+          });
+          console.error(err);
         }
+      });
+    } else {
+      Swal.fire({
+        title: "Warning",
+        text: "Please fill all fields and choose a product image",
+        icon: "warning"
       });
     }
   }

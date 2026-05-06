@@ -1,40 +1,62 @@
-<div class="container mt-5">
-  <div class="card p-4 shadow">
-    <h3>إضافة منتج جديد</h3>
-    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
-      <div class="mb-3">
-        <label>عنوان المنتج</label>
-        <input type="text" formControlName="title" class="form-control" [ngClass]="{'is-invalid': productForm.get('title')?.invalid && productForm.get('title')?.touched}">
+<div class="form-container">
+  <div class="form-card">
+    <div class="form-header">
+      <h3>Add New Product</h3>
+    </div>
+    
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="product-form">
+      
+      <!-- Product Title -->
+      <div class="form-group">
+        <label>Product Title</label>
+        <input type="text" formControlName="title" placeholder="Enter product name"
+               [class.error-border]="productForm.get('title')?.invalid && productForm.get('title')?.touched">
       </div>
       
-      <div class="mb-3">
-        <label>الوصف</label>
-        <textarea formControlName="description" class="form-control" rows="3"></textarea>
-        <small class="text-muted">يجب أن يكون أكثر من 20 حرفاً.</small>
+      <!-- Description -->
+      <div class="form-group">
+        <label>Description</label>
+        <textarea formControlName="description" rows="3" placeholder="Write a detailed description..."></textarea>
+        <span class="hint">Must be at least 20 characters long.</span>
       </div>
 
-      <div class="row">
-        <div class="col-md-6 mb-3">
-          <label>السعر</label>
-          <input type="number" formControlName="price" class="form-control">
+      <!-- Price and Quantity -->
+      <div class="form-row">
+        <div class="form-group flex-1">
+          <label>Price</label>
+          <input type="number" formControlName="price" placeholder="0.00">
         </div>
-        <div class="col-md-6 mb-3">
-          <label>الكمية</label>
-          <input type="number" formControlName="quantity" class="form-control">
+        <div class="form-group flex-1">
+          <label>Quantity</label>
+          <input type="number" formControlName="quantity" placeholder="E.g. 10">
         </div>
       </div>
 
-      <div class="mb-3">
-        <label>رابط الصورة</label>
-        <input type="text" formControlName="imageCover" class="form-control">
+      <!-- Product Image -->
+      <div class="form-group">
+        <label>Product Image</label>
+        <input type="file" (change)="onFileSelect($event)" class="file-input">
       </div>
 
-      <div class="mb-3">
-        <label>رقم القسم (Category ID)</label>
-        <input type="text" formControlName="category" class="form-control">
-      </div>
+      <!-- Category ID -->
+   <div class="input-group">
+  <label>Choose Category</label>
+  <select formControlName="category" class="form-control">
+    <option value="" disabled selected>Select a Category</option>
+    
+    <!-- Loop على الأقسام التي جلبناها -->
+    <option *ngFor="let cat of categories" [value]="cat._id">
+      {{ cat.title }} <!-- سيظهر للمستخدم: Electronics أو Phones -->
+    </option>
+    
+  </select>
+</div>
 
-      <button type="submit" class="btn btn-primary w-100" [disabled]="productForm.invalid">حفظ المنتج</button>
+      <!-- Submit Button -->
+      <button type="submit" class="submit-btn" [disabled]="productForm.invalid">
+        Save Product
+      </button>
+      
     </form>
   </div>
 </div>
